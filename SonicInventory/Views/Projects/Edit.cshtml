@@ -1,0 +1,101 @@
+﻿@model SonicInventory.Models.ProjectViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Project Details</h2>
+
+<p>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>project</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Project.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Project.name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Project.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Project.name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Project.description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Project.description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Project.description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save Changes" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<h2>Project Parts</h2>
+
+<p>
+    @Html.ActionLink("Add Part", "CreatePart", new { id = Model.Project.id }, new { @class = "btn btn-default" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Part.drawingNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Part.revNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Part.fabricator_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Part.wasModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Part.designer_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Parts)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.drawingNo.ToString(), "EditPart", new { id = item.id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.revNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fabricator_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wasModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.designer_id)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeletePart", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
