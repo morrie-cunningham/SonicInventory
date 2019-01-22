@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DesignersController.cs" />
+    <Compile Include="Controllers\DrawingTypesController.cs" />
     <Compile Include="Controllers\FabricatorsController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\drawingType.cs" />
     <Compile Include="Models\ProjectViewModel.cs" />
     <Compile Include="Models\designer.cs" />
     <Compile Include="Models\fabricator.cs" />
@@ -177,6 +179,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\PostTo-theardesigns.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -188,7 +191,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -230,6 +235,11 @@
     <Content Include="Views\Projects\CreatePart.cshtml" />
     <Content Include="Views\Projects\EditPart.cshtml" />
     <Content Include="Views\Projects\DeletePart.cshtml" />
+    <Content Include="Views\DrawingTypes\Create.cshtml" />
+    <Content Include="Views\DrawingTypes\Delete.cshtml" />
+    <Content Include="Views\DrawingTypes\Details.cshtml" />
+    <Content Include="Views\DrawingTypes\Edit.cshtml" />
+    <Content Include="Views\DrawingTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

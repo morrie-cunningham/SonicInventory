@@ -34,10 +34,6 @@ namespace SonicInventory.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<part>()
-                .Property(e => e.drawingType)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<part>()
                 .Property(e => e.detailNo)
                 .IsUnicode(false);
 
@@ -76,6 +72,16 @@ namespace SonicInventory.Models
             modelBuilder.Entity<subAssembly>()
                 .Property(e => e.Abbreviation)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<drawingType>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<drawingType>()
+                .Property(e => e.Abbreviation)
+                .IsUnicode(false);
         }
+
+        public System.Data.Entity.DbSet<SonicInventory.Models.drawingType> DrawingTypes { get; set; }
     }
 }

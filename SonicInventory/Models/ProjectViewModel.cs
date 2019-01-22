@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -22,5 +23,10 @@ namespace SonicInventory.Models
         public List<status> StatusList { get; set; }
 
         public List<subAssembly> SubAssemblyList { get; set; }
+
+        public List<drawingType> DrawingTypeList { get; set; }
+
+        [DataType(DataType.Upload)]
+        public HttpPostedFileBase PartFile { get; set; }
     }
 }

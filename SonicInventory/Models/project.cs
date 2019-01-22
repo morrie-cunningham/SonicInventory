@@ -13,9 +13,11 @@ namespace SonicInventory.Models
 
         [Required]
         [StringLength(255)]
+        [Display(Name = "Name")]
         public string name { get; set; }
 
         [StringLength(255)]
+        [Display(Name = "Description")]
         public string description { get; set; }
     }
 }
